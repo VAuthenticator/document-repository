@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  localstack:
+    image: localstack/localstack:jvm-2022-11-03
+    ports:
+      - "4566-4599:4566-4599"
+    environment:
+      - SERVICES=s3

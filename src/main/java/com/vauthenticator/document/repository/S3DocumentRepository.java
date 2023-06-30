@@ -1,13 +1,9 @@
 package com.vauthenticator.document.repository;
 
-import software.amazon.awssdk.core.ResponseInputStream;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.GetObjectRequest;
-import software.amazon.awssdk.services.s3.model.GetObjectResponse;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
-
-import java.io.IOException;
 
 import static com.vauthenticator.document.repository.SafeOperationExecutor.readAllBytesFrom;
 
@@ -25,8 +21,8 @@ public class S3DocumentRepository implements DocumentRepository {
         var request = GetObjectRequest.builder().bucket(buketName).key(documentKeyFor(type, path)).build();
         var response = s3Client.getObject(request);
         return new Document(
-                path,
                 response.response().contentType(),
+                path,
                 readAllBytesFrom(response)
         );
     }

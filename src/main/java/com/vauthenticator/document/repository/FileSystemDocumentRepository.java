@@ -1,14 +1,10 @@
 package com.vauthenticator.document.repository;
 
-import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static com.vauthenticator.document.repository.SafeOperationExecutor.contentTypeFor;
 import static com.vauthenticator.document.repository.SafeOperationExecutor.readAllBytesFrom;
-import static java.nio.file.Files.probeContentType;
-import static java.nio.file.Files.readAllBytes;
 
 public class FileSystemDocumentRepository implements DocumentRepository {
 
@@ -25,7 +21,7 @@ public class FileSystemDocumentRepository implements DocumentRepository {
         var filePath = Paths.get(basePath, documentKeyFor(type, path));
         var contentType = contentTypeFor(filePath);
         var content = readAllBytesFrom(filePath);
-        return new Document(path, contentType, content);
+        return new Document(contentType, path, content);
     }
 
 
