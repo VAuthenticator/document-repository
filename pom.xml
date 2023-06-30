@@ -3,10 +3,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>com.vauthenticator</groupId>
-    <artifactId>document-repository</artifactId>
+    <artifactId>document-repository-starter</artifactId>
     <version>0.6-SNAPSHOT</version>
-    <name>document-repository</name>
+    <name>document-repository-starter</name>
     <description>VAuthenticator Document Repository Library</description>
 
     <properties>
@@ -25,42 +32,44 @@
     </licenses>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/VAuthenticator/document-repository.git
+        <developerConnection>scm:git:https://github.com/VAuthenticator/document-repository-starter.git
         </developerConnection>
-        <connection>scm:git:https://github.com/VAuthenticator/document-repository.git</connection>
-        <url>https://github.com/VAuthenticator/document-repository.git</url>
+        <connection>scm:git:https://github.com/VAuthenticator/document-repository-starter.git</connection>
+        <url>https://github.com/VAuthenticator/document-repository-starter.git</url>
     </scm>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>s3</artifactId>
             <version>${aws.sdk.version}</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-suite</artifactId>
-            <version>${junit.platform.version}</version>
-            <scope>test</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
