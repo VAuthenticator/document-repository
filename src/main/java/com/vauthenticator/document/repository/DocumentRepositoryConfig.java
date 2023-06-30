@@ -36,7 +36,7 @@ class DocumentRepositoryConfig {
     CaffeineCache mailDocumentLocalCache(
             DocumentRepository documentRepository,
             @Value("${document.document-type.mail.cache.name:static-asset-document-local-cache}") String cacheName,
-            @Value("${document.cache.ttl:1m}") Duration ttl
+            @Value("${document.document-type.mail.cache.ttl:1m}") Duration ttl
     ) {
 
         return new CaffeineCache(cacheName, Caffeine.newBuilder()
@@ -48,7 +48,7 @@ class DocumentRepositoryConfig {
     CaffeineCache staticAssetDocumentLocalCache(
             DocumentRepository documentRepository,
             @Value("${document.document-type.static-asset.cache.name:static-asset-document-local-cache}") String cacheName,
-            @Value("${document.cache.ttl:1m}") Duration ttl
+            @Value("${document.document-type.static-asset.cache.ttl:1m}") Duration ttl
     ) {
 
         return new CaffeineCache(cacheName, Caffeine.newBuilder()
