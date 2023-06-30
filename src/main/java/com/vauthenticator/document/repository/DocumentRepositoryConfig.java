@@ -33,7 +33,7 @@ class DocumentRepositoryConfig {
     @Bean
     CaffeineCache mailDocumentLocalCache(
             DocumentRepository documentRepository,
-            @Value("${document.document-type.mail.cache.name:static-asset-document-local-cache}") String cacheName,
+            @Value("${document.document-type.mail.cache.name:mail-document-local-cache}") String cacheName,
             @Value("${document.document-type.mail.cache.ttl:1m}") Duration ttl
     ) {
 
