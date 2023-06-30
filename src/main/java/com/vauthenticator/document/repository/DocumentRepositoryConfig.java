@@ -15,8 +15,6 @@ import java.time.Duration;
 @Configuration(proxyBeanMethods = false)
 class DocumentRepositoryConfig {
 
-    private static final Logger logger = LoggerFactory.getLogger(DocumentRepositoryConfig.class);
-
     @Bean("documentRepository")
     @ConditionalOnProperty(value = "document.engine", havingValue = "s3")
     DocumentRepository s3DocumentRepository(@Value("${document.bucket-name}") String documentBucketName,
@@ -41,7 +39,7 @@ class DocumentRepositoryConfig {
 
         return new CaffeineCache(cacheName, Caffeine.newBuilder()
                 .refreshAfterWrite(ttl)
-                .build(assetName -> documentRepository.loadDocument(DocumentType.MAIL.getContent(), "content/asset/%s".formatted(assetName))));
+                .build(assetName -> documentRepository.loadDocument(DocumentType.MAIL.getContent(), "templates/%s".formatted(assetName))));
 
     }
     @Bean
