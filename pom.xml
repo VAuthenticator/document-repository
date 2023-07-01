@@ -12,7 +12,7 @@
 
     <groupId>com.vauthenticator</groupId>
     <artifactId>document-repository-starter</artifactId>
-    <version>0.6</version>
+    <version>0.7-SNAPSHOT</version>
     <name>document-repository-starter</name>
     <description>VAuthenticator Document Repository Library</description>
 
