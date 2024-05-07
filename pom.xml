@@ -21,6 +21,8 @@
         <aws.sdk.version>2.25.45</aws.sdk.version>
     </properties>
 
+    <url>https://github.com/VAuthenticator/document-repository-starter</url>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
